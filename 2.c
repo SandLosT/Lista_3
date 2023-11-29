@@ -1,6 +1,8 @@
 #include <math.h>
 #include <stdio.h>
 
+
+
 double calculofimdomes(int mes, double contribuicao, double juros) 
 {
     return contribuicao* (1 + juros)* ( ( (pow(1 + juros, mes) - 1) / juros) );

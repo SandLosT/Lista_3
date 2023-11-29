@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
+
 int validadorplaca(char *numplaca) 
 {
     int comprimento = strlen(numplaca);
