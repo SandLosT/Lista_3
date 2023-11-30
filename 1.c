@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
-int RomanopDecimal(char A) 
+int NovaFuncao1(char A) 
 {
     switch (A) {
         case 'I': return 1;
@@ -16,21 +15,20 @@ int RomanopDecimal(char A)
     }
 }
 
-
-int transfRomanopDecimal(char *romano) 
+int NovaFuncao2(char *romano) 
 {
     int resultado = 0;
     for (int i = 0; romano[i]; i++) {
-        if (RomanopDecimal(romano[i]) < RomanopDecimal(romano[i + 1])) {
-            resultado -= RomanopDecimal(romano[i]);
+        if (NovaFuncao1(romano[i]) < NovaFuncao1(romano[i + 1])) {
+            resultado -= NovaFuncao1(romano[i]);
         } else {
-            resultado += RomanopDecimal(romano[i]);
+            resultado += NovaFuncao1(romano[i]);
         }
     }
     return resultado;
 }
 
-void transfDecimalParaBinario(int decimal, char binario[]) 
+void NovaFuncao3(int decimal, char binario[]) 
 {
     binario[0] = '\0';
     while (decimal > 0) {
@@ -47,7 +45,7 @@ void transfDecimalParaBinario(int decimal, char binario[])
     }
 }
 
-void transfDecimalParaHexadecimal(int decimal, char hexadecimal[]) 
+void NovaFuncao4(int decimal, char hexadecimal[]) 
 {
     int i = 0, resto;
     hexadecimal[0] = '\0';
@@ -78,10 +76,10 @@ int main()
     
     scanf("%s", numeralRomano);
     
-    decimal = transfRomanopDecimal(numeralRomano);
+    decimal = NovaFuncao2(numeralRomano);
     
-    transfDecimalParaBinario(decimal, binario);
-    transfDecimalParaHexadecimal(decimal, hexadecimal);
+    NovaFuncao3(decimal, binario);
+    NovaFuncao4(decimal, hexadecimal);
     
     printf("%s na base 2: %s\n", numeralRomano, binario);
     printf("%s na base 10: %d\n", numeralRomano, decimal);
